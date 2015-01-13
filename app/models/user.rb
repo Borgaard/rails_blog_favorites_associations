@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles, dependent: :destroy #user.articles method now available to use
-
+  has_many :favorites
+  has_many :favorite_articles, through: :favorites, source: :article
   
 end
