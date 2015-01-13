@@ -24,7 +24,9 @@ class ArticlesController < ApplicationController
 
   # List all the articles
   def index
-    @articles = Article.all
+    #shows user's articles
+    @user = User.find(params[:user_id])
+    @articles = @user.articles
   end
 
   # Find specific article to edit
